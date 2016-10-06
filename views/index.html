@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <title>Sample Angular App</title>
+  <link rel="stylesheet" href='/stylesheets/style.css' />
+  <script src="/scripts/angular.js"></script>
+  <script src="/scripts/highcharts.js"></script>
+  <script src="/javascripts/controllers/app.js"></script>
+  <script src="/javascripts/controllers/sampleController.js"></script>
+  <script src="/javascripts/controllers/chartController.js"></script>
+</head>
+
+<body ng-app='helloAngular' ng-controller="SampleController as vm" >
+  <h2>
+    {{ vm.greeting }}
+  </h2>
+
+  <div ng-controller="ChartController as vm">
+    <div id="chart-container">
+     
+    </div>
+  </div>
+
+</body>
+
+</html>
