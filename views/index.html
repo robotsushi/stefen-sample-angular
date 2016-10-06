@@ -8,6 +8,7 @@
   <script src="/javascripts/controllers/app.js"></script>
   <script src="/javascripts/controllers/sampleController.js"></script>
   <script src="/javascripts/controllers/chartController.js"></script>
+    <script src="/javascripts/directives/highchartsDirective.js"></script>
 </head>
 
 <body ng-app='helloAngular' ng-controller="SampleController as vm" >
@@ -16,9 +17,13 @@
   </h2>
 
   <div ng-controller="ChartController as vm">
+
     <div id="chart-container">
      
     </div>
+
+    <hc-chart options="vm.chartOptions">Placeholder for generic chart</hc-chart>
+
   </div>
 
 </body>
