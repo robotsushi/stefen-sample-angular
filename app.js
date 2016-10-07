@@ -10,6 +10,7 @@ const routes = require('./routes/index');
 const app = express();
 
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 //configure angular & jquery dependency without exposing node_modules
 app.use('/scripts', express.static(__dirname + '/node_modules/angular/'));

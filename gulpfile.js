@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
+const babel = require('gulp-babel');
  
 gulp.task('lint', () => {
     // ESLint ignores files with "node_modules" paths. 
@@ -18,3 +19,11 @@ gulp.task('lint', () => {
         .pipe(eslint.failAfterError());
 });
  
+
+gulp.task('default', () => {
+    return gulp.src('public/javascripts/**/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
+});
