@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<title>Sample Angular App</title>
+	<link rel="stylesheet" href='/css/public/styles/shopping-cart.css' />
+	<script src="/scripts/angular.js"></script>
+	<script src="/scripts/highcharts.js"></script>
+	<script src="/controllers/shopping-cart/app.js"></script>
+	<script src="/controllers/shopping-cart/shoppingCartController.js"></script>
+
+
+</head>
+
+<body ng-app='shoppingCart' ng-controller="ShoppingCartController as vm">
+
+	<div class="title-bar">
+	</div>
+
+	<div class="cart-container">
+		<div class="items-gallery">
+
+			<div class="product">
+				<span> Item Name </span>
+				<span> $100,000.00 </span>
+				<span> ***** </span>
+			</div>
+
+			<div class="product">
+				<span> Item Name </span>
+				<span> $100,000.00 </span>
+				<span> ***** </span>
+			</div>
+
+		</div>
+
+		<div class="shopping-cart">
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,13 +1,14 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
- 
+const sass = require('gulp-sass');
+
 gulp.task('lint', () => {
     // ESLint ignores files with "node_modules" paths. 
     // So, it's best to have gulp ignore the directory as well. 
     // Also, Be sure to return the stream from the task; 
     // Otherwise, the task may end before the stream has finished. 
-    return gulp.src(['**/*.js','!node_modules/**'])
+    return gulp.src(['**/*.js', '!node_modules/**'])
         // eslint() attaches the lint output to the "eslint" property 
         // of the file object so it can be used by other modules. 
         .pipe(eslint())
@@ -18,12 +19,28 @@ gulp.task('lint', () => {
         // lint error, return the stream and pipe to failAfterError last. 
         .pipe(eslint.failAfterError());
 });
- 
 
-gulp.task('default', () => {
+gulp.task('sass', function () {
+    return gulp.src(['**/*.scss', '!node_modules/**'])
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('babel', function () {
     return gulp.src('public/javascripts/**/*.js')
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('sass:watch', function () {
+    gulp.watch('**/*.scss', ['sass', '!node_modules/**']);
+});
+
+gulp.task('babel:watch', function () {
+    gulp.watch('public/javascripts/**/*.js', ['babel', '!node_modules/**']);
+});
+
+
+gulp.task('default', ['babel:watch', 'sass']);
