@@ -43,23 +43,18 @@ body{
 
         .product {
             padding: 5px;
-            width: 200px;
-            
+            width: 222px;            
             border: 1px solid $cool-blue;
             border-radius: $border-radius;
             background-color: $light-gray;
             color: $dark-gray;
             float: left;
             margin: 10px 5px;
+            margin-top: 0px;
 
             span {
                 display: block;
-                margin: 5px 0px;   
-
-                &.product-title {
-                    font-weight: bold;                    
-                }
-
+                margin: 5px 0px;                   
                     
             }
 
@@ -86,12 +81,63 @@ body{
     }
 
     .shopping-cart {
-        padding: $content-padding;
+        padding: 0px $content-padding;
         width: 200px;
-        height: 350px;
+        min-height: 350px;
         border: 1px solid $cool-blue;
         border-radius: $border-radius;
-        float: left;
+        float: left;        
+
+        span {
+            display: block;
+        }
+
+        .cart-items {
+            min-height: 300px;
+            border: 2px solid $cool-blue;
+            background-color: $light-gray;     
+            border-radius: $border-radius;       
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .total {
+            font-size: 20px;
+            color: $dark-gray;
+        }
+
     }
 }
 
+.title {
+    font-weight: bold;                 
+    font-size: 18px;
+    margin: 5px 0px;
+    padding: 0;   
+}
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+
+ul.rating {
+    display: inline-block;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rating .filled {
+    color: red;
+}

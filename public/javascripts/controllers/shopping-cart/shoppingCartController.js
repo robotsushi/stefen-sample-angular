@@ -34,14 +34,14 @@
             {
                 name: "Steak House Dinner",
                 price: 300.00,
-                averageRating: 5,
+                averageRating: 4,
                 imageUrl: '/images/money-icon.png', 
                 quantity: 0
             },
             {
                 name: "4K TV",
                 price: 800.00,
-                averageRating: 5,
+                averageRating: 4,
                 imageUrl: '/images/money-icon.png', 
                 quantity: 0
             }
