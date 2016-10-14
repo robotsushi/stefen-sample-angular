@@ -16,6 +16,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/scripts', express.static(__dirname + '/node_modules/angular/'));
 app.use('/scripts', express.static(__dirname + '/node_modules/highcharts/'));
 app.use('/scripts', express.static(__dirname + '/node_modules/underscore/'));
+app.use('/scripts', express.static(__dirname + '/node_modules/angular-modal/'));
+app.use('/scripts', express.static(__dirname + '/node_modules/radio/'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

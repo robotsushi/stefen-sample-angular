@@ -1,0 +1,17 @@
+<div class="btf-modal shipping-modal">
+
+	<h2> Select a Shipping Method </h2>
+
+	<div class="shipping-option">
+		<div class='item-title'>Express 2 Day Delivery</div>
+		<button ng-click="vm.sendUpdateCartMessage(vm.expressShippingItem)"> Confirm </button>
+	</div>
+
+	<div class="shipping-option">
+		<div class='item-title'>Overnight Delivery</div>
+		<button ng-click="vm.sendUpdateCartMessage(vm.overnightShippingItem)"> Confirm </button>
+	</div>
+
+	<button ng-click="vm.closeMe()">Cancel</button>
+
+</div>

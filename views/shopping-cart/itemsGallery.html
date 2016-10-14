@@ -1,0 +1,29 @@
+<div class="items-gallery">
+
+	<div class="product" ng-repeat="product in vm.products | startFrom : vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+
+		<h2 class="title"> {{ product.name }} </h2>
+
+		<div ng-controller="StarController">
+
+			<span ng-repeat="rating in ratings">
+                            {{ product.averageRating }} out of {{ rating.max }}
+                            <div star-rating rating-value="product.averageRating" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                        </span>
+
+		</div>
+
+		<span> {{ product.price | currency:"$":0 }} </span>
+
+		<img ng-src="{{ product.imageUrl }}" />
+
+		<label>
+                        Quantity :
+                        <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
+                    </label>
+
+		<button ng-click="vm.addItemToCart(product)">Add To Cart </button>
+
+	</div>
+
+</div>

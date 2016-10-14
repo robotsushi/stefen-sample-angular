@@ -3,6 +3,7 @@
     "globals": {
         "angular": 1, 
         "Highcharts": 1,
-        "_": 1
+        "_": 1, 
+        "radio": 1
     }
 }

@@ -2,8 +2,9 @@ $cool-blue : #00abec;
 $content-width: 960px;
 $content-padding: 10px;
 $light-gray: #eee;
-$dark-gray: #505050;
+$dark-gray: #1A1A1A;
 $border-radius: 4px;
+$white: #fff;
 
 @mixin clearfix {
   &:after {
@@ -24,7 +25,8 @@ body{
 .title-bar {
 
     @extend .center;    
-    background-color : $cool-blue;
+    background-color : $dark-gray;
+    color: $cool-blue;
     width: $content-width;
     height: 50px;
     border-radius: $border-radius;
@@ -83,7 +85,7 @@ body{
     .shopping-cart {
         padding: 0px $content-padding;
         width: 200px;
-        min-height: 350px;
+        min-height: 500px;
         border: 1px solid $cool-blue;
         border-radius: $border-radius;
         float: left;        
@@ -93,10 +95,16 @@ body{
         }
 
         .cart-items {
+            padding: 5px;
             min-height: 300px;
             border: 2px solid $cool-blue;
             background-color: $light-gray;     
             border-radius: $border-radius;       
+            
+            .summary-title {
+                margin: 5px 0px;
+                border-bottom: 1px solid #fff;
+            }
         }
 
         h3 {
@@ -109,6 +117,14 @@ body{
             color: $dark-gray;
         }
 
+    }
+
+    .pagination-buttons {
+        height: 40px;
+        margin-top: 10px;
+        width: 300px;
+        float: left;
+        margin-left: 10px;
     }
 }
 
@@ -140,4 +156,37 @@ ul.rating {
 
 .rating .filled {
     color: red;
+}
+
+.shipping-modal {
+
+    background-color: $white;
+    border: 2px solid $cool-blue;
+    border-radius: $border-radius;
+    padding: $content-padding;
+    min-width: 0px;    
+    width: auto;
+
+    .shipping-option {
+        height: 30px;
+        margin: 10px 0px;   
+        
+        .item-title {
+            width: 200px;
+        }
+        
+        .item-title, button {
+            float: left;
+        }
+    }
+    
+
+    button {
+       
+        background-color: white;
+        height: 30px;
+        padding: 5px;
+        border-radius: $border-radius;
+    }
+
 }

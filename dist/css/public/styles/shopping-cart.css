@@ -5,7 +5,8 @@ body {
   margin: 0px auto; }
 
 .title-bar {
-  background-color: #00abec;
+  background-color: #1A1A1A;
+  color: #00abec;
   width: 960px;
   height: 50px;
   border-radius: 4px; }
@@ -27,7 +28,7 @@ body {
       border: 1px solid #00abec;
       border-radius: 4px;
       background-color: #eee;
-      color: #505050;
+      color: #1A1A1A;
       float: left;
       margin: 10px 5px;
       margin-top: 0px; }
@@ -50,23 +51,33 @@ body {
   .cart-container .shopping-cart {
     padding: 0px 10px;
     width: 200px;
-    min-height: 350px;
+    min-height: 500px;
     border: 1px solid #00abec;
     border-radius: 4px;
     float: left; }
     .cart-container .shopping-cart span {
       display: block; }
     .cart-container .shopping-cart .cart-items {
+      padding: 5px;
       min-height: 300px;
       border: 2px solid #00abec;
       background-color: #eee;
       border-radius: 4px; }
+      .cart-container .shopping-cart .cart-items .summary-title {
+        margin: 5px 0px;
+        border-bottom: 1px solid #fff; }
     .cart-container .shopping-cart h3 {
       margin: 0;
       padding: 0; }
     .cart-container .shopping-cart .total {
       font-size: 20px;
-      color: #505050; }
+      color: #1A1A1A; }
+  .cart-container .pagination-buttons {
+    height: 40px;
+    margin-top: 10px;
+    width: 300px;
+    float: left;
+    margin-left: 10px; }
 
 .title {
   font-weight: bold;
@@ -92,3 +103,23 @@ ul.rating {
 
 .rating .filled {
   color: red; }
+
+.shipping-modal {
+  background-color: #fff;
+  border: 2px solid #00abec;
+  border-radius: 4px;
+  padding: 10px;
+  min-width: 0px;
+  width: auto; }
+  .shipping-modal .shipping-option {
+    height: 30px;
+    margin: 10px 0px; }
+    .shipping-modal .shipping-option .item-title {
+      width: 200px; }
+    .shipping-modal .shipping-option .item-title, .shipping-modal .shipping-option button {
+      float: left; }
+  .shipping-modal button {
+    background-color: white;
+    height: 30px;
+    padding: 5px;
+    border-radius: 4px; }

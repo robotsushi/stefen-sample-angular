@@ -1,0 +1,17 @@
+<div class="shopping-cart">
+
+    <h2 class="title"> Summary </h2>
+
+    <button ng-hide="vm.hasShippingMethod" ng-click="vm.showModal()"> Add Shipping </button>
+
+    <div class="cart-items">
+
+        <span ng-repeat="product in vm.cartItems" class="summary-title"> {{ product.name }} x {{ product.quantity }} </span>
+
+    </div>
+
+    <span>Total</span>
+
+    <span class="total"> {{ vm.total | currency:"$":0 }} </span>
+
+</div>

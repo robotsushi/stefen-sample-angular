@@ -1,6 +1,6 @@
 (function(){
   "use strict";
-  angular.module('shoppingCart', []);
+  angular.module('shoppingCart', ["btford.modal"]);
   
 
 })();
