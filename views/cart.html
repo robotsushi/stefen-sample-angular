@@ -1,0 +1,97 @@
+<html>
+
+<head>
+	<title>Sample Angular App</title>
+	<link rel="stylesheet" href='/css/public/styles/shopping-cart.css' />
+    <link rel="stylesheet" href='/scripts/modal.css' />
+	
+    <script src="/scripts/angular.js"></script>
+	<script src="/scripts/highcharts.js"></script>
+	<script src="/scripts/underscore.js"></script>
+    <script src="/scripts/modal.js"></script>
+    <script src="/scripts/radio.js"></script>
+
+	<script src="/controllers/shopping-cart/app.js"></script>
+	<script src="/controllers/shopping-cart/shoppingCartController.js"></script>
+	<script src="/controllers/shopping-cart/starController.js"></script>
+    <script src="/controllers/shopping-cart/shippingModalFactory.js"></script>
+    <script src="/controllers/shopping-cart/shippingModalController.js"></script>
+	<script src="/directives/starRatingDirective.js"></script>
+	<script src="/controllers/shopping-cart/filters/startFromFilter.js"></script>
+
+</head>
+
+<body ng-app='shoppingCart' ng-controller="ShoppingCartController as vm">
+
+	<div class="title-bar">
+	</div>
+
+	<div class="cart-container">
+
+		<div class="items-gallery">
+
+			<div class="product" ng-repeat="product in vm.products | startFrom : vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+
+				<h2 class="title"> {{ product.name }} </h2>
+
+				<div ng-controller="StarController">
+
+					<span ng-repeat="rating in ratings">
+                            {{ product.averageRating }} out of {{ rating.max }}
+                            <div star-rating rating-value="product.averageRating" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                        </span>
+
+				</div>
+
+				<span> {{ product.price | currency:"$":0 }} </span>
+
+				<img ng-src="{{ product.imageUrl }}" />
+
+				<label>
+                        Quantity :
+                        <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
+                    </label>
+
+				<button ng-click="vm.addItemToCart(product)">Add To Cart </button>
+
+			</div>			
+
+		</div>
+
+		<div class="shopping-cart">
+
+			<h2 class="title"> Summary </h2>
+
+            <button ng-hide="vm.hasShippingMethod" ng-click="vm.showModal()"> Add Shipping </button>
+
+			<div class="cart-items">
+
+				<span ng-repeat="product in vm.cartItems" class="summary-title"> {{ product.name }} x {{ product.quantity }} </span>
+
+			</div>
+
+			<span>Total</span>
+
+			<span class="total"> {{ vm.total | currency:"$":0 }} </span>
+
+		</div>
+
+        <div class="pagination-buttons">
+            <button ng-disabled="vm.currentPage == 0" ng-click="vm.currentPage=vm.currentPage-1">
+                Previous
+            </button>
+                
+            {{vm.currentPage+1}}/{{vm.numberOfPages()}}
+
+            <button ng-disabled="vm.currentPage >= vm.products.length/vm.pageSize - 1" ng-click="vm.currentPage=vm.currentPage+1">
+                Next
+            </button>
+        </div>
+
+	</div>
+
+
+
+</body>
+
+</html>
