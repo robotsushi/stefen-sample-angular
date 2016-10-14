@@ -61,6 +61,8 @@ describe('CartCalculator ', function () {
 
             var result = cartCalculator.calculate([]);
 
+            assert.equal(result, 0.00);
+
         });
 
 
