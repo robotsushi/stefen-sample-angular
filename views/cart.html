@@ -19,21 +19,29 @@
 	<div class="cart-container">
 		<div class="items-gallery">
 
-			<div class="product">
-				<span> Item Name </span>
-				<span> $100,000.00 </span>
-				<span> ***** </span>
-			</div>
+			<div class="product" ng-repeat="product in vm.products">
+				<span class="product-title"> {{ product.name }} </span>
+				<span class="rating"> {{ product.averageRating }} </span>
+				<span> {{ product.price | currency:"$":0 }} </span>
+				<img ng-src="{{ product.imageUrl }}" />
+				<label>
+                    Quantity :
+				    <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
+                </label>
 
-			<div class="product">
-				<span> Item Name </span>
-				<span> $100,000.00 </span>
-				<span> ***** </span>
+                <button ng-click="vm.addItemToCart">
 			</div>
 
 		</div>
 
 		<div class="shopping-cart">
+
+            <div class="cart-items" >
+                
+            </div>
+
+            <span class="total"> {{ vm.total | currency:"$":0 }} </span>
+
 		</div>
 	</div>
 

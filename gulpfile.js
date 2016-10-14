@@ -35,12 +35,11 @@ gulp.task('babel', function () {
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('**/*.scss', ['sass', '!node_modules/**']);
+    gulp.watch(['public/styles/**/*.scss', '!node_modules/**'], ['sass']);
 });
 
 gulp.task('babel:watch', function () {
-    gulp.watch('public/javascripts/**/*.js', ['babel', '!node_modules/**']);
+    gulp.watch(['public/javascripts/**/*.js', '!node_modules/**'], ['babel']);
 });
-
 
 gulp.task('default', ['babel:watch', 'sass']);
