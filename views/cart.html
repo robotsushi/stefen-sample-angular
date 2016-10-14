@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href='/css/public/styles/shopping-cart.css' />
 	<script src="/scripts/angular.js"></script>
 	<script src="/scripts/highcharts.js"></script>
+	<script src="/scripts/underscore.js"></script>
 	<script src="/controllers/shopping-cart/app.js"></script>
 	<script src="/controllers/shopping-cart/shoppingCartController.js"></script>
 
@@ -29,18 +30,23 @@
 				    <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
                 </label>
 
-                <button ng-click="vm.addItemToCart">
+				<button ng-click="vm.addItemToCart(product)">Add To Cart </button>
 			</div>
 
 		</div>
 
 		<div class="shopping-cart">
 
-            <div class="cart-items" >
-                
-            </div>
+			<div class="cart-items">
 
-            <span class="total"> {{ vm.total | currency:"$":0 }} </span>
+				<div class="product-summary" ng-repeat="product in vm.cartItems">
+                    <span> {{ product.name }} </span>
+                    <span> {{ product.quantity }} </span>
+                </div>
+
+			</div>
+
+			<span class="total"> {{ vm.total | currency:"$":0 }} </span>
 
 		</div>
 	</div>

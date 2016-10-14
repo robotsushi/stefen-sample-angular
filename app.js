@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //configure angular & highcharts dependency without exposing node_modules
 app.use('/scripts', express.static(__dirname + '/node_modules/angular/'));
 app.use('/scripts', express.static(__dirname + '/node_modules/highcharts/'));
+app.use('/scripts', express.static(__dirname + '/node_modules/underscore/'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

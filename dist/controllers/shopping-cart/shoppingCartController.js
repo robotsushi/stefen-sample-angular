@@ -11,6 +11,7 @@
 
     function ShoppingCartController() {
         var vm = this;
+        vm.cartItems = [];
 
         activate();
 
@@ -42,10 +43,34 @@
             quantity: 0
         }];
 
-        var cartItems = [];
-
         vm.addItemToCart = function (product) {
-            cartItems.push(product);
+
+            var existingItem = _.find(vm.cartItems, function (item) {
+                return item.$$hashKey === product.$$hashKey;
+            });
+
+            if (existingItem !== null && existingItem !== undefined) {
+                existingItem.quantity = product.quantity;
+            } else {
+                vm.cartItems.push(product);
+            }
+
+            updateTotal();
+        };
+
+        var updateTotal = function updateTotal() {
+
+            var result = 0;
+
+            _.each(vm.cartItems, function (item) {
+                if (item === null && item === undefined && item.price <= 0) {
+                    return null;
+                }
+
+                result += item.price * item.quantity;
+            });
+
+            vm.total = result;
         };
 
         function activate() {};

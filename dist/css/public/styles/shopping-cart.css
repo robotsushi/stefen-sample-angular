@@ -24,7 +24,6 @@ body {
     .cart-container .items-gallery .product {
       padding: 5px;
       width: 200px;
-      height: 200px;
       border: 1px solid #00abec;
       border-radius: 4px;
       background-color: #eee;
@@ -41,6 +40,14 @@ body {
       .cart-container .items-gallery .product img {
         width: 64px;
         height: 64px; }
+      .cart-container .items-gallery .product button {
+        height: 30px;
+        padding: 5px;
+        background-color: white;
+        border: none;
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 4px; }
   .cart-container .shopping-cart {
     padding: 10px;
     width: 200px;
