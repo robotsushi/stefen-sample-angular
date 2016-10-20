@@ -4,10 +4,8 @@
 
 You will need node and npm to setup dependencies : 
 
-To run : 
+To run open a console and run: 
 
-npm install
-
-gulp
+npm install && gulp
 
 npm start
